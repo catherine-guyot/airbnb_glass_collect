@@ -11,8 +11,12 @@
   </head>
 
   <body>
+    <%= render "shared_components/navbar" %>
+    <%= render "shared_components/cards" %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    <%# yield = c'est le contenu du site (exple: page home, index etc..) %>
+    <%= render "shared_components/footer" %>
   </body>
 </html>
