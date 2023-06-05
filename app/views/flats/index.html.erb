@@ -1,7 +1,7 @@
 <div class="container">
 
   <div>
-  <h2>Que recherchez vous</h2>
+  <h2>Que recherchez vous?</h2>
   </div>
 
   <div>
@@ -9,12 +9,9 @@
       <% @flats.each do |flat| %>
         <div class="col-md-4">
           <div class="flat-card">
-            <div class="flat-card-image">
-                <%= cl_image_tag@flat.photo.key, alt:"flat", height: 150px, width: 100px, crop: :fill %>
-            </div>
+
             <div class="flat-card-content">
-              <%# <div class="flat-card-title">
-                <h4><%= flat.name %>
+
               <p><%= flat.address %>,<%= flat.city %></p>
               <div class="flex">
                 <div class="flex align-items-center">
@@ -29,6 +26,7 @@
             </div>
           </div>
         </div>
+      <% end %>
     </div>
   </div>
 
