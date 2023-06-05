@@ -1,0 +1,36 @@
+<div class="container">
+
+  <div>
+  <h2>Que recherchez vous</h2>
+  </div>
+
+  <div>
+    <div class="row">
+      <% @flats.each do |flat| %>
+        <div class="col-md-4">
+          <div class="flat-card">
+            <div class="flat-card-image">
+                <%= cl_image_tag@flat.photo.key, alt:"flat", height: 150px, width: 100px, crop: :fill %>
+            </div>
+            <div class="flat-card-content">
+              <%# <div class="flat-card-title">
+                <h4><%= flat.name %>
+              <p><%= flat.address %>,<%= flat.city %></p>
+              <div class="flex">
+                <div class="flex align-items-center">
+                  <i class="fa-solid fa-people-line"></i>
+                  <span><%= flat.number_of_guests %></span>
+                </div>
+                <div class="flex align-items-center ms-3">
+                  <i class="fa-solid fa-euro-sign"></i>
+                  <span><%= flat.price_per_night %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+</div>
