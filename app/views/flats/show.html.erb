@@ -1,9 +1,11 @@
+<div class="container">
+<h2>Bienvenue</h2>
 <div class="flat-card">
 
   <div class="flat-card-content">
 
     <p><%= @flat.address %>,<%= @flat.city %></p>
-    <%= cl_image_tag @flat.photo.key, alt:"flat_picture", height:"300px", width:"400px", crop: :fill %>
+    <%= cl_image_tag @flat.photo.key, alt:"flat_picture", height:300, width:400, crop: :fill if @flat.photo.attached? %>
     <p><%= @flat.description %></p>
     <div class="flex">
       <div class="flex align-items-center">
@@ -16,4 +18,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

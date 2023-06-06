@@ -17,7 +17,7 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.owner = current_user
     @flat.save
-    redirect_to root_path
+    redirect_to flat_path(@flat)
 
   end
 
