@@ -1,6 +1,6 @@
 class FlatsController < ApplicationController
   # skip_before_action :authenticate_user!, only: :index
-
+  before_action :authenticate_user!, only: [:new, :create]
   def index
     @flats = Flat.all
   end
@@ -15,8 +15,10 @@ class FlatsController < ApplicationController
 
   def create
     @flat = Flat.new(flat_params)
+    @flat.owner = current_user
     @flat.save
-    redirect_to flats_path(@flat)
+    redirect_to root_path
+
   end
 
 
