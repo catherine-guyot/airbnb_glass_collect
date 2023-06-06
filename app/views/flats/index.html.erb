@@ -12,7 +12,7 @@
 
             <div class="flat-card-content">
 
-              <p><%= flat.address %>,<%= flat.city %></p>
+              <p><%= link_to flat.address, flat_path(flat) %>,<%= flat.city %></p>
               <div class="flex">
                 <div class="flex align-items-center">
                   <i class="fa-solid fa-people-line"></i>
