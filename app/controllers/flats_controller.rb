@@ -1,8 +1,12 @@
 class FlatsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  # skip_before_action :authenticate_user!, only: :index
 
   def index
     @flats = Flat.all
+  end
+
+  def show
+    @flat = Flat.find(params[:id])
   end
 
   def new
@@ -15,9 +19,12 @@ class FlatsController < ApplicationController
     redirect_to flat_path(@flat)
   end
 
+
+
   private
 
   def flat_params
     params.require(:flat).permit(:address, :city, :price_per_night, :number_of_guests)
   end
+
 end
