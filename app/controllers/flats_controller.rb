@@ -18,9 +18,13 @@ class FlatsController < ApplicationController
     @flat.owner = current_user
     @flat.save
     redirect_to flat_path(@flat)
-
   end
 
+  def destroy
+    @flat = Flat.find(params[:id])
+    @flat.destroy
+    redirect_to root_path, status: :see_other
+  end
 
 
   private
