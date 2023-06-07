@@ -11,7 +11,7 @@
           <div class="flat-card">
 
             <div class="flat-card-content">
-
+              <%= cl_image_tag @flat.photo.key, alt:"flat_picture", height:300, width:400, crop: :fill if @flat.photo.attached? %>
               <p><%= link_to flat.address, flat_path(flat) %>,<%= flat.city %></p>
               <div class="flex">
                 <div class="flex align-items-center">
