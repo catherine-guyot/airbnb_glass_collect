@@ -1,38 +1,46 @@
-<div class="container">
+<head>
+  <link rel="stylesheets" type="text/css" href="application.scss">
+</head>
+<body>
+  <div class="container">
 
-  <div>
-  <h2>Que recherchez vous?</h2>
-  </div>
 
-  <div>
-    <div class="row">
-      <% @flats.each do |flat| %>
-        <div class="col-md-4">
-          <div class="flat-card">
 
-            <div class="flat-card-content">
-              <% if flat.photo.attached? %>
-                <%= cl_image_tag flat.photo.key, alt: "flat_picture", height: 300, width: 400, crop: :fill %>
-              <% else %>
-                <p>No photo available</p>
-              <% end %>
-              <p><%= link_to flat.address, flat_path(flat) %>,<%= flat.city %></p>
-              <div class="flex">
-                <div class="flex align-items-center">
-                  <i class="fa-solid fa-people-line"></i>
-                  <span><%= flat.number_of_guests %></span>
-                </div>
-                <div class="flex align-items-center ms-3">
-                  <i class="fa-solid fa-euro-sign"></i>
-                  <span><%= flat.price_per_night %></span>
+    <h2>Que recherchez vous?</h2>
+    </div>
+
+    <div>
+      <div class="row">
+        <% @flats.each do |flat| %>
+          <div class="col-md-4">
+            <div class="flat-card">
+
+              <div class="flat-card-content">
+
+                  <% if flat.photo.attached? %>
+                    <%= cl_image_tag flat.photo.key, alt: "flat_picture", height: 300, width: 400, crop: :fill, class: "rounded-image"%>
+                  <% else %>
+                    <p>No photo available</p>
+                  <% end %>
+
+                <p><%= link_to flat.address, flat_path(flat) %>,<%= flat.city %></p>
+                <div class="flex">
+                  <div class="flex align-items-center">
+                    <i class="fa-solid fa-people-line"></i>
+                    <span><%= flat.number_of_guests %></span>
+                  </div>
+                  <div class="flex align-items-center ms-3">
+                    <i class="fa-solid fa-euro-sign"></i>
+                    <span><%= flat.price_per_night %></span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
+
+
   </div>
-
-
-</div>
+</body>
