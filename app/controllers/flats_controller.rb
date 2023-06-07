@@ -3,7 +3,6 @@ class FlatsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   def index
     @flats = Flat.all
-
   end
 
   def show
