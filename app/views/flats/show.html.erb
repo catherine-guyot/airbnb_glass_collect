@@ -15,7 +15,9 @@
       <div class="flex align-items-center ms-3">
       <i class="fa-solid fa-euro-sign"></i>
         <span><%= @flat.price_per_night %></span>
-        <%= button_to 'Delete', delete_flat_path(@flat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        <% if current_user == @flat.owner %>
+        <%= button_to 'Delete', delete_flat_path(@flat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
+        <% end %>
       </div>
     </div>
   </div>
