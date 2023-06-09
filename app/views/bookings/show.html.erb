@@ -1,0 +1,17 @@
+<div class="container " >
+
+<h1> welcome to the show </h1>
+
+<p>
+Merci pour votre demande de réservation du <%=@booking.start_date %> au <%= @booking.end_date %> à l'adresse <%= @booking.flat.address %>, <%= @booking.flat.city %>.
+</p>
+<p>
+
+<% duration = @booking.end_date  - @booking.start_date  %>
+vous souhaitez réserver pour <%= duration.to_i %> jours
+<p>le prix par nuit de votre appartement est de : <%= @booking.flat.price_per_night %>€ </p>
+<p> Le montant total de votre réservation sélève à <%= duration.to_i * @booking.flat.price_per_night %>€</p>
+ Le status de votre réservation est actuellement de "<strong><%= @booking.status %>"</strong>.
+</p>
+
+</div>

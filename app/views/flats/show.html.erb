@@ -17,6 +17,7 @@
             <% if current_user == @flat.owner %>
             <%= button_to 'Delete', delete_flat_path(@flat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
             <% end %>
+            <%= link_to 'réservation', new_flat_booking_path(@flat), class: "btn btn-success" %>
           </div>
         </div>
       </div>
