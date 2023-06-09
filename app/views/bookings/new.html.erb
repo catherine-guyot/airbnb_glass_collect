@@ -1,1 +1,15 @@
 <h1>Nouvelle reservation TEST</h1>
+<div class="container">
+
+<h1>Bravo ! réservez dès maintenant !</h1>
+
+  <%= simple_form_for ([@flat, @booking]) do |b| %>
+    <%= b.input :start_date %>
+    <%= b.input :end_date %>
+
+    <%= b.submit class:"btn btn-primary" %>
+  <% end %>
+
+
+<p>le prix par nuit de votre appartement est de : <%= @flat.price_per_night %>€ </p>
+</div>
