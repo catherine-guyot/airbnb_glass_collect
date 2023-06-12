@@ -5,6 +5,7 @@
       <div class="flat-card-content">
         <p><%= @flat.address %>,<%= @flat.city %></p>
         <%= cl_image_tag @flat.photo.key, alt:"flat_picture", height:300, width:400, crop: :fill, class: "rounded-image" if @flat.photo.attached? %>
+        <%= raise %>
         <p><%= @flat.description %></p>
         <div class="flex">
           <div class="flex align-items-center">
