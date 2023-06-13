@@ -1,11 +1,11 @@
 <div class="container">
-  <h2>Bienvenue</h2>
+  <h2>Welcome to <%= @flat.city %></h2>
   <div class="flat-card">
     <div class="flat-card-content">
-      <p><%= @flat.address %>, <%= @flat.city %></p>
+      <p class="fs-5"><%= @flat.address %></p>
       <%= cl_image_tag @flat.photo.key, alt:"flat_picture", height:300, width:400, crop: :fill, class: "rounded-image" if @flat.photo.attached? %>
-      <p><%= @flat.description %></p>
-      <div class="flex">
+      <p>Description of the flat: <%= @flat.description %></p>
+      <div class="d-flex">
         <div class="flex align-items-center">
           <i class="fa-solid fa-people-line"></i>
           <span><%= @flat.number_of_guests %> personnes</span>
