@@ -5,6 +5,11 @@
   <div class="container">
     <div class="search">
       <h2>Que recherchez vous?</h2>
+      <form class="flex my-2 my-lg-0">
+            <input class="form-control" name="query_city" type="search" placeholder="Ville?" aria-label="Search" value="<%= params[:query_city] %>">
+            <input class="form-control" name="query_guest" type="search" placeholder="Nombre de guests?" aria-label="Search" value="<%= params[:query_guest] %>">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </div>
       <div>
         <div class="row">
