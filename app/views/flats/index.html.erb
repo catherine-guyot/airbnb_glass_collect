@@ -15,7 +15,7 @@
         <div class="row">
           <% @flats.each do |flat| %>
             <div class="col-md-4">
-              <div class="flat-card">
+              <div class="card p-3">
 
                 <div class="flat-card-content">
 
@@ -27,7 +27,7 @@
                       <p>No photo available</p>
                     <% end %>
 
-                  <p><%= flat.address %>, <%= flat.city %></p>
+                  <p class="fs-5"><%= flat.address %>, <%= flat.city %></p>
                   <div class="d-flex justify-content-between">
                     <div class="flex align-items-center">
                       <i class="fa-solid fa-people-line"></i>
