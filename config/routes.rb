@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   delete "flats/:id", to: "flats#destroy", as: "delete_flat"
 
+  get 'dashboard', to: 'pages#dashboard'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
