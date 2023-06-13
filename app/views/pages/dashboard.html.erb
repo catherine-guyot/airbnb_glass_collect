@@ -1,0 +1,25 @@
+<head>
+  <link rel="stylesheets" type="text/css" href="application.scss">
+</head>
+
+<body>
+
+<div class="container">
+<h2>All my bookings</h2>
+  <div class="booking-container">
+    <% @bookings.each do |booking| %>
+      <div class="booking-card">
+          <%= cl_image_tag booking.flat.photo.key, alt: "flat_picture", height: 300, width: 400, crop: :fill, class: "rounded-image" %>
+          <p>City: <%= booking.flat.city %></p>
+          <p>Host: <%= booking.flat.owner.first_name %></p>
+          <strong><%= booking.start_date %></strong>
+          <strong><%= booking.end_date %></strong>
+      </div>
+    <% end %>
+  </div>
+
+  <h2>All my flats</h2>
+
+</div>
+
+</body>
