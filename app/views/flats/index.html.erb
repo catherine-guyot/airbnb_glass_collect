@@ -15,14 +15,16 @@
         <div class="row">
           <% @flats.each do |flat| %>
             <div class="col-md-4">
-              <div class="card p-3 bg-info">
+              <div class="card p-3 bg-info mb-4">
+                <div class=" center-image ">
                   <% if flat.photo.attached? %>
                     <%= link_to flat_path(flat) do %>
-                      <%= cl_image_tag flat.photo.key, alt: "flat_picture", height: 300, width: 400, crop: :fill, class: "rounded-image center-image"%>
+                      <%= cl_image_tag flat.photo.key, alt: "flat_picture", height: 382, width: 382, crop: :fill, class: "rounded-image"%>
                     <% end %>
                   <% else %>
                     <p>No photo available</p>
                   <% end %>
+                </div>
                   <p class="fs-5"><%= flat.address %>, <%= flat.city %></p>
                   <div class="d-flex justify-content-between">
                     <div class="flex align-items-center">
