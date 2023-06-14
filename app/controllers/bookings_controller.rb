@@ -19,6 +19,8 @@ class BookingsController < ApplicationController
     @booking.flat = @flat
     @booking.user = current_user
     @booking.status = "Confirmed"
+    duration = @booking.end_date - @booking.start_date
+    @booking.booking_price = duration.to_i * @booking.flat.price_per_night
     @booking.save
     redirect_to flat_booking_path(@flat, @booking)
   end
