@@ -3,7 +3,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="d-flex justify-content-between mb-3">
+    <div class="d-flex justify-content-between mt-5 mb-5">
       <h2>Where do you like to go ?</h2>
       <form class="d-flex w-50">
             <input class="form-control" name="query" type="search" placeholder="City?" aria-label="Search" value="<%= params[:query] %>">
@@ -15,7 +15,7 @@
         <div class="row">
           <% @flats.each do |flat| %>
             <div class="col-md-4">
-              <div class="shadow p-3 bg-info mb-4">
+              <div class="shadow p-3 bg-info mb-4" style="height: 500px;">
                 <div class=" center-image ">
                   <% if flat.photo.attached? %>
                     <%= link_to flat_path(flat) do %>
