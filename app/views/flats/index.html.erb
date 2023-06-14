@@ -3,19 +3,19 @@
 </head>
 <body>
   <div class="container">
-    <div class="search">
+    <div class="d-flex justify-content-between mb-3">
       <h2>Where do you like to go ?</h2>
-      <form class="d-flex">
+      <form class="d-flex w-50">
             <input class="form-control" name="query" type="search" placeholder="City?" aria-label="Search" value="<%= params[:query] %>">
             <%# <input class="form-control" name="query_guest" type="search" placeholder="Number of guests?" aria-label="Search" value="<%= params[:query_guest]%>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0 ms-2 me-2" type="submit">Search</button>
       </form>
     </div>
       <div>
         <div class="row">
           <% @flats.each do |flat| %>
             <div class="col-md-4">
-              <div class="card p-3 bg-info mb-4">
+              <div class="shadow p-3 bg-info mb-4">
                 <div class=" center-image ">
                   <% if flat.photo.attached? %>
                     <%= link_to flat_path(flat) do %>
