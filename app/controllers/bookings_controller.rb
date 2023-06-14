@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.flat = @flat
     @booking.user = current_user
-    @booking.status = "A valider"
+    @booking.status = "Confirmed"
     @booking.save
     redirect_to flat_booking_path(@flat, @booking)
   end
@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to flat_path(@booking_flat), status: :see_other
+    redirect_to root_path, status: :see_other
   end
 
   private

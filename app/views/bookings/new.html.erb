@@ -1,16 +1,20 @@
-<h1>Nouvelle reservation TEST</h1>
+
 <div class="container">
 
-  <h1>Bravo ! réservez dès maintenant !</h1>
+  <h1 class="text-center">Nice to see you there !</h1>
 
   <div data-controller="update-total">
-    <%= simple_form_for ([@flat, @booking]) do |b| %>
-      <%= b.date_field :start_date, data: { update_total_target: "startDate", action: "change->update-total#refreshTotal" }%>
-      <%= b.date_field :end_date, data: { update_total_target: "endDate", action: "change->update-total#refreshTotal"} %>
-
-      <%= b.submit class:"btn btn-primary" %>
-    <% end %>
-    <p>le prix par nuit de votre appartement est de : <span data-update-total-target="pricePerNight"><%= @flat.price_per_night %></span>€</p>
-    <p>Total : <span data-update-total-target="total">0</span>€</p>
+    <div class="form-center fs-3  w-50">
+      <p>When do you want to reserve ?</p>
+      <%= simple_form_for ([@flat, @booking]) do |b| %>
+        <%= b.date_field :start_date, data: { update_total_target: "startDate", action: "change->update-total#refreshTotal" }%>
+        <%= b.date_field :end_date, data: { update_total_target: "endDate", action: "change->update-total#refreshTotal"} %>
+        <%= b.submit class:"btn btn-primary" %>
+        <% end %>
+    </div>
+    <div class="mt-3 p-3 fs-5 bg-info w-50">
+      <p>As the price per night of the chosen flat is : <span data-update-total-target="pricePerNight"><%= @flat.price_per_night %></span>€</p>
+      <p>The total price of your stay will be : <span data-update-total-target="total">0</span>€</p>
+    </div>
   </div>
 </div>
