@@ -1,25 +1,27 @@
-<div class="container text-center justify-content-center">
+<div class="container text-center justify-content-center mt-5">
   <h2>Welcome to <%= @flat.city %></h2>
-    <div class="card-trip-img" style= "display: inline-block; max-width: 600px;">
+    <div class="card-trip-img mt-5" style= "display: inline-block; max-width: 600px;">
         <%= cl_image_tag @flat.photo.key, alt:"flat_picture", height:300, width:600, crop: :fill, class: "rounded-image" if @flat.photo.attached? %>
     </div>
 
-    <div class="text-center ">
+    <div class=" text-center mt-3"  style="max-width: 600px;margin: 0 auto;">
       <p class="fs-5"><%= @flat.address %></p>
-      <p class="my-3">Description of the flat: <%= @flat.description %></p>
+      <p class="my-3" style="text-align: left;">Description of the flat: <%= @flat.description %></p>
 
-      <div class="flex align-items-left">
-        <i class="fa-solid fa-people-line"></i>
-        <span><%= @flat.number_of_guests %> personnes</span>
-        <i class="fa-solid fa-euro-sign"></i>
-        <span><%= @flat.price_per_night %> par nuit</span>
+      <div class="d-flex justify-content-between">
+        <div>
+          Number of guest(s) : <span class="align-self-start"><%= @flat.number_of_guests %> guests <i class="fa-solid fa-people-line "></i></span>
+        </div>
+        <div>
+          price: <span><%= @flat.price_per_night %> <i class="fa-solid fa-euro-sign"></i> /night</span>
+        </div>
       </div>
 
 
     </div>
-    <div class="flex align-items-center">
+    <div class="flex align-items-center mt-3 ">
       <% if current_user != @flat.owner %>
-      <%= link_to 'Réserve!', new_flat_booking_path(@flat), class: "btn btn-outline-success mt-2" %>
+      <%= link_to 'Ready to reserve! ', new_flat_booking_path(@flat), class: "btn btn-success mt-2" %>
       <% end %>
       <% if current_user == @flat.owner %>
       <%= button_to 'Delete', delete_flat_path(@flat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger mt-2'%>
