@@ -1,20 +1,21 @@
-<div class="container text-center">
+<div class="container text-center justify-content-center">
   <h2>Welcome to <%= @flat.city %></h2>
-  <div class="card " style="width: 32rem; mb-2">
-    <div class="flat-card-content">
+    <div class="card-trip-img" style= "display: inline-block; max-width: 600px;">
+        <%= cl_image_tag @flat.photo.key, alt:"flat_picture", height:300, width:600, crop: :fill, class: "rounded-image" if @flat.photo.attached? %>
+    </div>
+
+    <div class="text-center ">
       <p class="fs-5"><%= @flat.address %></p>
-      <%= cl_image_tag @flat.photo.key, alt:"flat_picture", height:300, width:400, crop: :fill, class: "rounded-image" if @flat.photo.attached? %>
-      <p my-3>Description of the flat: <%= @flat.description %></p>
-      <div class="d-flex justify-content-between">
-        <div class="flex align-items-center">
-          <i class="fa-solid fa-people-line"></i>
-          <span><%= @flat.number_of_guests %> personnes</span>
-        </div>
-        <div class="flex align-items-center">
-          <i class="fa-solid fa-euro-sign"></i>
-          <span><%= @flat.price_per_night %> par nuit</span>
-        </div>
+      <p class="my-3">Description of the flat: <%= @flat.description %></p>
+
+      <div class="flex align-items-left">
+        <i class="fa-solid fa-people-line"></i>
+        <span><%= @flat.number_of_guests %> personnes</span>
+        <i class="fa-solid fa-euro-sign"></i>
+        <span><%= @flat.price_per_night %> par nuit</span>
       </div>
+
+
     </div>
     <div class="flex align-items-center">
       <% if current_user != @flat.owner %>

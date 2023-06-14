@@ -13,7 +13,5 @@ vous souhaitez réserver pour <%= duration.to_i %> jours
 <p> Le montant total de votre réservation sélève à <%= duration.to_i * @booking.flat.price_per_night %>€</p>
  Le status de votre réservation est actuellement de "<strong><%= @booking.status %>"</strong>.
 </p>
-<% if current_user == @booking.user %>
-      <%= button_to 'Delete', flat_booking_path(@flat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger mt-2'%>
-<% end %>
+
 </div>
