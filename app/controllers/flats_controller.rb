@@ -2,7 +2,15 @@ class FlatsController < ApplicationController
   # skip_before_action :authenticate_user!, only: :index
   before_action :authenticate_user!, only: [:new, :create]
   def index
-    @flats = Flat.all
+    if params[:query].present?
+      # @query = params[:query]
+      # @query_guest = params[:query_guest]
+      @flats = Flat.where("city ILIKE ?", "%#{params[:query]}%")
+      # Preventing SQL Injection and Database error for
+      # unknown characters
+    else
+      @flats = Flat.all
+    end
   end
 
   def show

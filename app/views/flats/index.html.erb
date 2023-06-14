@@ -4,10 +4,10 @@
 <body>
   <div class="container">
     <div class="search">
-      <h2>Que recherchez vous?</h2>
-      <form class="flex my-2 my-lg-0">
-            <input class="form-control" name="query_city" type="search" placeholder="Ville?" aria-label="Search" value="<%= params[:query_city] %>">
-            <input class="form-control" name="query_guest" type="search" placeholder="Nombre de guests?" aria-label="Search" value="<%= params[:query_guest] %>">
+      <h2>Where do you like to go ?</h2>
+      <form class="d-flex">
+            <input class="form-control" name="query" type="search" placeholder="City?" aria-label="Search" value="<%= params[:query] %>">
+            <%# <input class="form-control" name="query_guest" type="search" placeholder="Number of guests?" aria-label="Search" value="<%= params[:query_guest]%>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
@@ -15,18 +15,14 @@
         <div class="row">
           <% @flats.each do |flat| %>
             <div class="col-md-4">
-              <div class="card p-3">
-
-                <div class="flat-card-content">
-
-                    <% if flat.photo.attached? %>
-                      <%= link_to flat_path(flat) do %>
-                        <%= cl_image_tag flat.photo.key, alt: "flat_picture", height: 300, width: 400, crop: :fill, class: "rounded-image"%>
-                      <% end %>
-                    <% else %>
-                      <p>No photo available</p>
+              <div class="card p-3 bg-info">
+                  <% if flat.photo.attached? %>
+                    <%= link_to flat_path(flat) do %>
+                      <%= cl_image_tag flat.photo.key, alt: "flat_picture", height: 300, width: 400, crop: :fill, class: "rounded-image center-image"%>
                     <% end %>
-
+                  <% else %>
+                    <p>No photo available</p>
+                  <% end %>
                   <p class="fs-5"><%= flat.address %>, <%= flat.city %></p>
                   <div class="d-flex justify-content-between">
                     <div class="flex align-items-center">
@@ -38,7 +34,6 @@
                       <span><%= flat.price_per_night %> par nuit</span>
                     </div>
                   </div>
-                </div>
               </div>
             </div>
           <% end %>
