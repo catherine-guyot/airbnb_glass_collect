@@ -1,14 +1,12 @@
 <div class="container " >
 
-  <h1> welcome to the show </h1>
+  <h1> Information on your reservation </h1>
 
-  <p>
-  Merci pour votre demande de réservation du <%=@booking.start_date %> au <%= @booking.end_date %> à l'adresse <%= @booking.flat.address %>, <%= @booking.flat.city %>.
-  </p>
-  <p>
+  <p>Thank you for your reservation from <%=@booking.start_date %> to <%= @booking.end_date %></p>
+  <p>You will be welcomed <%= @booking.flat.address %>, in <%= @booking.flat.city %>.
 
   <% duration = @booking.end_date  - @booking.start_date  %>
-  vous souhaitez réserver pour <%= duration.to_i %> jours
+  You will stay <%= duration.to_i %> days
   <p>le prix par nuit de votre appartement est de : <%= @booking.flat.price_per_night %>€ </p>
   <p> Le montant total de votre réservation sélève à <%= duration.to_i * @booking.flat.price_per_night %>€</p>
   Le status de votre réservation est actuellement de "<strong><%= @booking.status %>"</strong>.
