@@ -5,24 +5,48 @@
 <body>
 
 <div class="container">
-<h2>All my bookings</h2>
+  <h2>All my bookings</h2>
   <div class="booking-container">
     <% @bookings.each do |booking| %>
       <div class="booking-card">
         <%= link_to flat_booking_path(booking.flat, booking.id) do %>
           <%= cl_image_tag booking.flat.photo.key, alt: "flat_picture", height: 300, width: 400, crop: :fill, class: "rounded-image" %>
-      <% end %>
-      <% owner = User.find_by(id: booking.flat.user_id) %>
-          <p>City: <%= booking.flat.city %></p>
-          <p>Host: <%= owner.first_name %></p>
-          <strong><%= booking.start_date %></strong>
-          <strong><%= booking.end_date %></strong>
+        <% end %>
+        <div class="d-flex justify-content-between p-2 fs-7">
+          <% owner = User.find_by(id: booking.flat.user_id) %>
+            <p>City: <%= booking.flat.city %></p>
+            <p>Host: <%= owner.first_name %></p>
+        </div>
+            <p>From <strong><%= booking.start_date %></strong> To <strong><%= booking.end_date %></strong></p>
       </div>
     <% end %>
   </div>
 
   <h2>All my flats</h2>
-
+  <div class="booking-container">
+    <% @flats.each do |flat| %>
+      <div class="booking-card">
+        <%= link_to flat_path(flat) do %>
+          <%= cl_image_tag flat.photo.key, alt: "flat_picture", height: 300, width: 400, crop: :fill, class: "rounded-image" %>
+        <% end %>
+          <div class= "fs-6">
+          <p>City: <%= flat.city %></p>
+          <p>Address: <%= flat.address %></p>
+          </div>
+          <div>
+            <p>Current bookings:</p>
+            <% if flat.bookings.any? %>
+              <% flat.bookings.each do |booking| %>
+              <p>Host: <%= booking.user.first_name %></p>
+              <p>Date: <%= booking.start_date %> - <%= booking.end_date %></p>
+              <% end %>
+            <% else %>
+              <p>No current booking at the moment</p>
+            <% end %>
+          </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 </body>

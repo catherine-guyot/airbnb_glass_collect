@@ -1,17 +1,19 @@
 <div class="container " >
 
-<h1> welcome to the show </h1>
+  <h1> welcome to the show </h1>
 
-<p>
-Merci pour votre demande de réservation du <%=@booking.start_date %> au <%= @booking.end_date %> à l'adresse <%= @booking.flat.address %>, <%= @booking.flat.city %>.
-</p>
-<p>
+  <p>
+  Merci pour votre demande de réservation du <%=@booking.start_date %> au <%= @booking.end_date %> à l'adresse <%= @booking.flat.address %>, <%= @booking.flat.city %>.
+  </p>
+  <p>
 
-<% duration = @booking.end_date  - @booking.start_date  %>
-vous souhaitez réserver pour <%= duration.to_i %> jours
-<p>le prix par nuit de votre appartement est de : <%= @booking.flat.price_per_night %>€ </p>
-<p> Le montant total de votre réservation sélève à <%= duration.to_i * @booking.flat.price_per_night %>€</p>
- Le status de votre réservation est actuellement de "<strong><%= @booking.status %>"</strong>.
-</p>
-
+  <% duration = @booking.end_date  - @booking.start_date  %>
+  vous souhaitez réserver pour <%= duration.to_i %> jours
+  <p>le prix par nuit de votre appartement est de : <%= @booking.flat.price_per_night %>€ </p>
+  <p> Le montant total de votre réservation sélève à <%= duration.to_i * @booking.flat.price_per_night %>€</p>
+  Le status de votre réservation est actuellement de "<strong><%= @booking.status %>"</strong>.
+  </p>
+  <% if current_user == @booking.user %>
+        <%= button_to 'Cancel the reservation', flat_booking_path(@booking.flat, @booking.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger mt-2%'%>
+  <% end %>
 </div>
