@@ -23,6 +23,12 @@ class BookingsController < ApplicationController
     redirect_to flat_booking_path(@flat, @booking)
   end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to flat_path(@booking_flat), status: :see_other
+  end
+
   private
 
   def booking_params
